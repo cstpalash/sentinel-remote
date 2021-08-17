@@ -2,10 +2,11 @@ import "strings"
 import "types"
 import "http"
 import "json"
+import "tfplan"
 
 resp = http.get("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote")
 
-print(resp.body)
+print(tfplan.resources)
 
 respData = json.unmarshal(resp.body)
 
