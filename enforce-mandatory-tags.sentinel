@@ -1,6 +1,3 @@
-import "strings"
-import "types"
-
 # This policy uses the Sentinel tfplan/v2 import to require that
 # specified AWS resources have all mandatory tags
 
@@ -33,8 +30,6 @@ allAWSResourcesWithStandardTags =
 violatingAWSResources =
         plan.filter_attribute_not_contains_list(allAWSResourcesWithStandardTags,
                         "tags", mandatory_tags, true)
-
-print("I have started logging - Palash")
 
 # Main rule
 main = rule {
