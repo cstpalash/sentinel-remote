@@ -1,21 +1,15 @@
 import "strings"
 import "types"
-import "net/http"
-import "io/ioutil"
+import "http"
 
-response, err := http.Get("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote")
+resp = http.get("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote")
 
-    if err != nil {
-        print(err.Error())
-    }
+print(resp.body)
 
-    responseData, err := ioutil.ReadAll(response.Body)
-    if err != nil {
-        print(err.Error())
-    }
+respData = json.unmarshal(resp.body)
 
 
 # Main rule
 main = rule {
-  responseData.allow is true
+  respData.allow is true
 }
