@@ -4,9 +4,9 @@ import "http"
 import "json"
 import "tfplan"
 
-resp = http.get("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote")
+req = http.request("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote").with_body(json.marshal(tfplan.resources))
 
-print(tfplan.resources)
+resp = http.post(req)
 
 respData = json.unmarshal(resp.body)
 
