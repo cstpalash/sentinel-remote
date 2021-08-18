@@ -14,7 +14,7 @@ reqData = {
     planned_values : tfplan.planned_values, 
     resource_changes : tfplan.resource_changes, 
     output_changes : tfplan.output_changes, 
-    raw : tfplan.raw 
+    raw : tfplan.raw,
   } 
 }
 
