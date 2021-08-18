@@ -7,18 +7,15 @@ import "tfrun"
 import "strings"
 import "types"
 
-reqData = { 
-  plan : { 
+planData = { 
     terraform_version : tfplan.terraform_version, 
     variables : tfplan.variables, 
     planned_values : tfplan.planned_values, 
     resource_changes : tfplan.resource_changes, 
     output_changes : tfplan.output_changes, 
-    raw : tfplan.raw,
-  } 
-}
+    raw : tfplan.raw }
 
-req = http.request("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote").with_body(json.marshal(reqData))
+req = http.request("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote").with_body(json.marshal({ plan : planData }))
 
 resp = http.post(req)
 
