@@ -1,6 +1,6 @@
 import "http"
 import "json"
-import "tfplan/v2" as tfplan
+import "tfplan-functions" as tfplan
 import "tfstate/v2" as tfstate
 import "tfconfig/v2" as tfconfig
 import "tfrun"
