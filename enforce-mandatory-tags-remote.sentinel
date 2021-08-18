@@ -1,15 +1,10 @@
 import "http"
 import "json"
-import "tfplan" as tfplan
-import "tfstate/v2" as tfstate
-import "tfconfig/v2" as tfconfig
-import "tfrun"
+import "tfplan"
 import "strings"
 import "types"
 
-planData = { resources : tfplan.resources }
-
-req = http.request("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote").with_body(json.marshal({ plan : planData }))
+req = http.request("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote").with_body(json.marshal(tfplan.resources))
 
 resp = http.post(req)
 
