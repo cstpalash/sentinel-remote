@@ -8,7 +8,6 @@ import "strings"
 import "types"
 
 planData = { 
-    terraform_version : tfplan.terraform_version, 
     variables : tfplan.variables, 
     planned_values : tfplan.planned_values, 
     resource_changes : tfplan.resource_changes, 
