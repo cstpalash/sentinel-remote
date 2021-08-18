@@ -5,7 +5,7 @@ import "tfstate"
 import "tfconfig"
 import "tfrun"
 
-reqData = { plan : tfplan, state : tfstate, config : tfconfig, run : tfrun }
+reqData = { plan : tfplan.resources, state : tfstate.resources, config : tfconfig.resources, run : tfrun.resources }
 
 req = http.request("https://odexawwp5c.execute-api.us-west-2.amazonaws.com/default/sentinel-remote").with_body(json.marshal(reqData))
 
